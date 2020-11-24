@@ -4,8 +4,9 @@ exports.up = function(knex) {
         tbl.increments();
         tbl.string('salt', 128).notNullable();
         tbl.string('saltedHash', 128).notNullable();
-        tbl.string('username', 64).unique().notNullable();
+        tbl.string('username', 64).notNullable();
         tbl.string('email', 128).notNullable();
+        tbl.unique('username');
   })
 };
 

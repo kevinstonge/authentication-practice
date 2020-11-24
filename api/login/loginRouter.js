@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const db = require('../../data/dbConfig.js');
+const Users = require('./loginModel.js');
 
 router.post('/', async (req, res) => {
     try {
-        const [userObject] = await db('users').where({ username: req.body.username });
+        const [userObject] = await Users.findByUserName(req.body.username);
         if (userObject) {
             const valid = await bcrypt.compare(req.body.password, userObject.saltedHash)
             if (valid) {
