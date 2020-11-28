@@ -1,0 +1,26 @@
+@import "./base.scss";
+#root {
+  @include flexC();
+  background-color: #222;
+  color: #eee;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  header {
+    width: calc(100vw - 2rem);
+    padding: 1rem;
+    background-color: $b2;
+    @include flexR();
+    h1 {
+      font-size: 1.5rem;
+    }
+    nav {
+      @include flexR();
+      gap: 1rem;
+      a {
+        color: $f1;
+        text-decoration: none;
+      }
+    }
+  }
+}

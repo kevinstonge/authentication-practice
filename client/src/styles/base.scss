@@ -1,0 +1,23 @@
+$b1: #222;
+$b2: #333;
+$f1: #ddd;
+$f2: #eee;
+
+@mixin flexR() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+}
+
+@mixin flexC() {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
