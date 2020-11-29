@@ -1,24 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, NavLink, Route } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Nav from "./components/Nav";
 import './styles/App.scss';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
     <Router>
       <header>
         <h1>authentication practice</h1>
-        <nav>
-          <NavLink to="/register">register</NavLink>
-          <NavLink to="/login">login</NavLink>
-        </nav>
+        <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       </header>
       <Route path="/register">
         <Register />
       </Route>
       <Route path="/login">
-        <Login />
+        <Login setLoggedIn={setLoggedIn}/>
       </Route>
     </Router>
   );
